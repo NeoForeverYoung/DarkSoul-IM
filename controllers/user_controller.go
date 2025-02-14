@@ -82,4 +82,29 @@ func Login(c *gin.Context) {
 			"email":    user.Email,
 		},
 	})
+}
+
+func GetProfile(c *gin.Context) {
+	// 从上下文中获取用户ID（在JWT中间件中设置的）
+	userId, exists := c.Get("userId")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "未找到用户信息"})
+		return
+	}
+
+	var user models.User
+	result := config.DB.First(&user, userId)
+	if result.Error != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "用户不存在"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"user": gin.H{
+			"id":       user.ID,
+			"username": user.Username,
+			"email":    user.Email,
+			"created_at": user.CreatedAt,
+		},
+	})
 } 

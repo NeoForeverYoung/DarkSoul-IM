@@ -20,7 +20,7 @@ func SetupRouter() *gin.Engine {
 	protected := r.Group("/api")
 	protected.Use(middleware.JWTAuth())
 	{
-		// 这里后续可以添加需要认证的路由
+		protected.GET("/profile", controllers.GetProfile)
 	}
 
 	return r
