@@ -1,15 +1,39 @@
-im-server/
-├── config/
-│   └── config.go
-├── controllers/
-│   └── user_controller.go
-├── middleware/
-│   └── jwt_middleware.go
-├── models/
-│   └── user.go
-├── routes/
-│   └── routes.go
-├── utils/
-│   └── jwt_utils.go
-├── go.mod
-└── main.go 
+DarkSoul-IM/
+├── server/                # 后端代码
+│   ├── config/
+│   │   └── config.go
+│   ├── controllers/
+│   │   └── user_controller.go
+│   ├── middleware/
+│   │   └── jwt_middleware.go
+│   ├── models/
+│   │   └── user.go
+│   ├── routes/
+│   │   └── routes.go
+│   ├── utils/
+│   │   └── jwt_utils.go
+│   ├── go.mod
+│   ├── go.sum
+│   └── main.go
+│
+├── web/                   # 前端代码
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── page.tsx
+│   │   │   ├── register/
+│   │   │   │   └── page.tsx
+│   │   │   ├── login/
+│   │   │   │   └── page.tsx
+│   │   │   └── profile/
+│   │   │       └── page.tsx
+│   │   ├── components/
+│   │   │   ├── Navbar.tsx
+│   │   │   └── AuthProvider.tsx
+│   │   ├── lib/
+│   │   │   └── api.ts
+│   │   └── types/
+│   │       └── index.ts
+│   ├── package.json
+│   └── next.config.js
+│
+└── README.md 

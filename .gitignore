@@ -43,3 +43,5 @@ im-server
 # SQLite 数据库文件
 *.db
 *.db-journal
+*.server
+./server/*.server
