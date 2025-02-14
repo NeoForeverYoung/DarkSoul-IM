@@ -36,6 +36,10 @@ go.work.sum
 # MacOS系统文件
 .DS_Store
 
-# 二进制文件
+# 二进制文件 为什么不生效呢？
 *.im-server
 im-server
+
+# SQLite 数据库文件
+*.db
+*.db-journal

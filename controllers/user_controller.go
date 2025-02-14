@@ -40,7 +40,8 @@ func Register(c *gin.Context) {
 		Email:    req.Email,
 	}
 
-	if err := config.DB.Create(&user).Error; err != nil {
+	result := config.DB.Create(&user)
+	if result.Error != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "用户创建失败"})
 		return
 	}
@@ -56,7 +57,8 @@ func Login(c *gin.Context) {
 	}
 
 	var user models.User
-	if err := config.DB.Where("username = ?", req.Username).First(&user).Error; err != nil {
+	result := config.DB.Where("username = ?", req.Username).First(&user)
+	if result.Error != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "用户名或密码错误"})
 		return
 	}
